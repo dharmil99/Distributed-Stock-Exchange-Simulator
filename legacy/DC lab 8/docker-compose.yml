@@ -1,0 +1,32 @@
+services:
+  primary:
+    build: .
+    container_name: primary
+    environment:
+      - ROLE=primary
+      - HOST=0.0.0.0
+      - PORT=8000
+      - PEER_HOST=backup
+      - PEER_PORT=8001
+    ports:
+      - "8000:8000"
+    networks:
+      - trading-net
+
+  backup:
+    build: .
+    container_name: backup
+    environment:
+      - ROLE=backup
+      - HOST=0.0.0.0
+      - PORT=8001
+      - PEER_HOST=primary
+      - PEER_PORT=8000
+    ports:
+      - "8001:8001"
+    networks:
+      - trading-net
+
+networks:
+  trading-net:
+    driver: bridge

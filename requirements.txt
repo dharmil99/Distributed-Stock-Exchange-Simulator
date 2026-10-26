@@ -1,0 +1,7 @@
+# Distributed Stock Exchange Simulator Dependencies
+# Phase 1-3 relies entirely on the Python Standard Library.
+# Phase 4 introduces PySpark (Lab 7), mpi4py (Labs 9 & 10), and NumPy (matrix verification).
+
+pyspark>=4.2.0
+mpi4py>=4.1.2
+numpy>=1.26.0
